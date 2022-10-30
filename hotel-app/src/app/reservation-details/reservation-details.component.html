@@ -1,0 +1,104 @@
+<main *ngIf="reservation$ | async as reservation">
+  <h1>Reservations</h1>
+  <form #myForm="ngForm" (ngSubmit)="onSubmit(reservation)">
+    <p>
+      <label>First Name:</label>
+      <input
+        type="text"
+        [(ngModel)]="reservation.firstName"
+        required
+        name="firstName"
+      />
+    </p>
+
+    <p>
+      <label>Last Name:</label>
+      <input
+        type="text"
+        [(ngModel)]="reservation.lastName"
+        required
+        name="lastName"
+      />
+    </p>
+
+    <p>
+      <label>Email:</label>
+      <input
+        type="email"
+        [(ngModel)]="reservation.email"
+        required
+        name="email"
+      />
+    </p>
+
+    <p>
+      <label>Phone:</label>
+      <input type="tel" [(ngModel)]="reservation.phone" required name="phone" />
+    </p>
+
+    <p>
+      <label>Room:</label>
+      <input
+        type="number"
+        [(ngModel)]="reservation.room"
+        required
+        name="room"
+      />
+    </p>
+
+    <p>
+      <label>Check-In:</label>
+      <input
+        type="date"
+        [(ngModel)]="reservation.checkin"
+        required
+        name="checkin"
+      />
+    </p>
+    <p>
+      <label>Check-Out:</label>
+      <input
+        type="date"
+        [(ngModel)]="reservation.checkout"
+        required
+        name="checkout"
+      />
+    </p>
+    <p>
+      <label>Number Of People:</label>
+      <input
+        type="text"
+        [(ngModel)]="reservation.numPeople"
+        required
+        name="numPeople"
+      />
+    </p>
+    <p>
+      <label>Price:</label>
+      <input
+        type="number"
+        [(ngModel)]="reservation.price"
+        required
+        name="price"
+      />
+    </p>
+    <p>
+      <label>Country:</label>
+      <input
+        type="text"
+        [(ngModel)]="reservation.country"
+        required
+        name="country"
+      />
+    </p>
+
+    <p>
+      <label>City:</label>
+      <input type="text" [(ngModel)]="reservation.city" required name="city" />
+    </p>
+
+    <p>
+      <button type="submit" [disabled]="!myForm.valid">Submit</button>
+    </p>
+  </form>
+</main>

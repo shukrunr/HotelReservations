@@ -1,0 +1,41 @@
+<main>
+  <section>
+    <div>
+      <button (click)="addReservation()">Add Reservation</button>
+    </div>
+    <table id="customers" *ngIf="reservations?.length; else nodata">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Room</th>
+        <th>Check-In</th>
+        <th>Check-Out</th>
+        <th></th>
+      </tr>
+      <tr class="row" *ngFor="let r of reservations">
+        <td>{{ r.firstName }}</td>
+        <td>{{ r.lastName }}</td>
+        <td>{{ r.email }}</td>
+        <td>{{ r.phone }}</td>
+        <td>{{ r.room }}</td>
+        <td>{{ r.checkin | date }}</td>
+        <td>{{ r.checkout | date }}</td>
+        <td id="actions">
+          <button (click)="openDetails(r.id)">
+            <img src="assets/pen.png" />
+          </button>
+
+          <button (click)="deleteReservation(r.id)">
+            <img src="assets/delete.png" />
+          </button>
+        </td>
+      </tr>
+    </table>
+  </section>
+</main>
+
+<ng-template #nodata>
+  <h1 style="text-align: center">No Reservations</h1>
+</ng-template>
